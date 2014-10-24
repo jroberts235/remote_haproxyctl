@@ -43,9 +43,9 @@ chef_server_object = ChefClient.new(chef_user_name, pem_file, chef_url)
 node_query_object  = NodeQuery.new(chef_server_object.url)
 
 
-if options.config[:health]
-    abort 'ERROR: You must supply a Target host (-H) when getting a health check' unless options.config[:health] and target_host
-end
+#if options.config[:health]
+#    abort 'ERROR: You must supply a Target host (-H) when getting a health check' unless options.config[:health] and target_host
+#end
 abort "ERROR: Either supply an Environment or a Host" unless (target_host || environment)
 abort "ERROR: You cannot supply an Environment and a Host" if (target_host and environment)
 abort "ERROR: You did not supply an action" unless (options.config[:health] or options.config[:enable] or options.config[:disable] or options.config[:command])

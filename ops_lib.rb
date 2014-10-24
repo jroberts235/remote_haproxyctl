@@ -181,9 +181,13 @@ def execute_remote_cmd(hosts_to_execute_on_h, user, ssh_key, max_conn_attempts, 
         # execute the command for each host provided and print returned lines if any
         command.each do |cmd|
             string = net_ssh.run_cmd("#{cmd}", target_host, verbose)
-            @output = string.split(/\n/) if string 
-    
-            #@output.map! { |l| "#{host}::#{l}" }
+            if string
+                output = string.split(/\n/) 
+                output.map! { |l| "#{host}::#{l}" } 
+                output.each { |line| @output << line } # add recent output to global output
+            else
+                puts "No output returned from #{host}"
+            end
 
             @log.info("ON #{host} RAN #{command} AS #{user}")
         end
