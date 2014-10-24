@@ -2,7 +2,7 @@ class Options
     require 'mixlib/cli'
     include Mixlib::CLI
 
-    option :node_name,
+    option :host_name,
         :short => "-H TARGET_HOST",
         :long => "--host TARGET_HOST",
         :description => "The name of the target host to run the command on.",
@@ -52,11 +52,11 @@ class Options
         :default => 4000,
         :required => false
 
-#    option :command,
-#        :short => "-x COMMAND",
-#        :long => "--execute COMMAND",
-#        :description => "Command to run on remote host",
-#        :required => false
+    option :command,
+        :short => "-x COMMAND",
+        :long => "--execute COMMAND",
+        :description => "Command to run on remote host",
+        :required => false
 
     option :enable,
         :long => "--enable NODE",
