@@ -143,27 +143,6 @@ end
 
 
 
-#def get_current_state(hosts_to_execute_on_h, user, ssh_key, max_conn_attempts, verbose, node_names_a)
-#    
-#    array = []
-#    keep = []
-#
-#    current_state = execute_remote_cmd(node, command, user, ssh_key, max_conn_attempts, verbose) 
-#    current_state.each do |line|
-#       array << line.split(' ')
-#    end
-#    array.each do |e| 
-#        node_names_a.each do |n|
-#            if e[1] == n 
-#                 keep << "#{e[1]} #{e[2]}"
-#            end
-#        end
-#    end
-#
-#    return keep
-#end
-
-
 
 def execute_remote_cmd(hosts_to_execute_on_h, user, ssh_key, max_conn_attempts, verbose)
 
@@ -189,7 +168,7 @@ def execute_remote_cmd(hosts_to_execute_on_h, user, ssh_key, max_conn_attempts, 
                 puts "No output returned from #{host}"
             end
 
-            @log.info("ON #{host} RAN #{command} AS #{user}")
+            @log.info("ON #{host} RAN '#{cmd.to_s}' AS #{user}")
         end
     end
 end
