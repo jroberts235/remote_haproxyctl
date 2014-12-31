@@ -272,7 +272,6 @@ def chain_of_commands(node_names_s, action)
               @command << "sudo haproxyctl #{action} all #{node}; "
               @command << "sudo haproxyctl #{action} all #{node}:80; "
               @command << "sudo haproxyctl #{action} all #{node}:443; "
-              @command << "sudo haproxyctl #{action} all #{node}:443; "
               @command << "sudo haproxyctl #{action} all #{node}:6081; "
           elsif node.include?('pub-api')
               @command << "sudo haproxyctl #{action} all #{node}; "
