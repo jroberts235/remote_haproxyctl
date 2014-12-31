@@ -118,6 +118,7 @@ class Options
 
     option :help,
         :long => "--help",
+        :short => "-h",
         :description => "Show this message",
         :on => :tail,
         :show_options => true,
