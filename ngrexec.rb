@@ -261,6 +261,7 @@ def chain_of_commands(node_names_s, action)
     node_names_a = []
     node_names_a = node_names_s.include?(',') ? node_names_s.split(',') : node_names_a << node_names_s
     node_names_a.map { |name| name.strip }
+    node_names_a.map { |name| name.split('.')[0] }
 
     # for each name, string commands together 
     node_names_a.each do |node|
