@@ -1,0 +1,8 @@
+source 'https://rubygems.org'
+gem 'logger'
+gem 'mixlib-cli'
+gem 'chef'
+#gem 'chef/search/query'
+#gem 'chef/rest'
+#gem 'chef/node'
+gem 'json'
